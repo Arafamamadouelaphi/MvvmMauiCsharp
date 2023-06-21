@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Mvue.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Mvue.Pages"
+    Shell.FlyoutBehavior="Disabled">
+    <TabBar>
+        <!--<ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:HomePage}"
+        Route="MainPage" />
+        <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:HomePage}"
+        Route="MainPage" />-->
+
+
+
+         <!--///Icon="hoome.png"-->
+        <Tab Title="Home"
+         >
+           <ShellContent ContentTemplate="{DataTemplate local:HomePage}" Route="MainPage"/>
+       </Tab>
+        <Tab Title="Champion"
+            >
+           <ShellContent ContentTemplate="{DataTemplate local:ChampionsView}" Route="ChampionsView" FlyoutIcon="iclg.png" />
+       </Tab>
+       
+    </TabBar>
+    
+
+</Shell>
+

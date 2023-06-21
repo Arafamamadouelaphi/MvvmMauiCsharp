@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Mvue.ViewModel"
+             x:Class="Mvue.Pages.AjoutChampion"
+             xmlns:conv="clr-namespace:Mvue.Converters"
+             Title="AjoutChampion"
+             x:DataType="vm:EditChampionViewModel">
+    <ContentPage.Resources>
+        <conv:Base64ToImageConverter x:Key="Base64ToImageConverter"/>
+        <conv:ClassesToImageConverter x:Key="ClassesToImageConverter"/>
+    </ContentPage.Resources>
+
+    <ScrollView>
+    <Grid>    
+    <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+    <ScrollView Margin="32">
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal" Margin="16">
+                <Label Text="Nom: " />
+                <Entry  Text="{Binding EditableChampion.Name}"/>
+            </StackLayout>
+            <Grid Grid.Row="1">
+            <StackLayout Orientation="Horizontal" Margin="16">
+                <Label Text="Icone: " />
+                <ImageButton Source="{Binding EditableChampion.Icon,Converter={StaticResource Base64ToImageConverter}}" Command="{Binding PickIconCommand}" WidthRequest="50" HeightRequest="50" BackgroundColor="Blue"/>
+            </StackLayout>
+                </Grid>
+            <Grid Grid.Row="2">
+            <StackLayout Orientation="Vertical" Margin="16">
+                <Label Text="Image: " />
+                <ImageButton Source="{Binding EditableChampion.Image,Converter={StaticResource Base64ToImageConverter}}" Command="{Binding PickImageCommand}"  BackgroundColor="AliceBlue" WidthRequest="100" HeightRequest="100"/>
+            </StackLayout>
+            </Grid>
+            <Grid Grid.Row="3">
+            <StackLayout Orientation="Horizontal" Margin="16">
+                <Label Text="Bio: " />
+                <Editor Text="{Binding EditableChampion.Bio}"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="100" />
+            </StackLayout>
+            </Grid>
+            <Grid Grid.Row="4">
+            <StackLayout Orientation="Horizontal" Margin="16">
+                <Label Text="Classe: " />
+                <ListView ItemsSource="{Binding EditableChampion.ListClasses}" SelectedItem="{Binding EditableChampion.Class}" >
+                    <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Border Padding="10">
+                                        <StackLayout Orientation="Vertical" >
+                                        <Image Source="{Binding ., Converter={StaticResource ClassesToImageConverter}}" 
+                                               HeightRequest="20"
+                                               Aspect="AspectFit"
+                                               HorizontalOptions="Center" 
+                                               VerticalOptions="Center" />
+                                        <Label Text="{Binding .}" 
+                                           VerticalTextAlignment="Center" 
+                                           HorizontalTextAlignment="Center" 
+                                           FontAttributes="Bold" />
+                                         </StackLayout>
+                                 </Border>
+
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+                </Grid>
+            <Grid Grid.Row="5">
+            <StackLayout Orientation="Vertical" >
+                <Label Text="Caractéristiques: " />
+                <StackLayout Orientation="Horizontal" Margin="16">
+                    <Entry x:Name="NewCharacteristicKey" 
+                           Text=""
+                           WidthRequest="100"/>
+                    <Entry x:Name="NewCharacteristicValue"
+                           Keyboard="Numeric" 
+                           Text="" 
+                           WidthRequest="100" >
+                        <Entry.Behaviors>
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Button Text="+" >
+                    </Button>
+                </StackLayout>
+
+                <Button Text="Enregister" Command="{Binding SaveChampionCommand}"
+                     />
+            </StackLayout>
+                </Grid>
+            <Label Text="Compétences" Grid.Row="6" Grid.Column="0" VerticalTextAlignment="Center"/>
+            <!--<VerticalStackLayout Grid.Row="3" Grid.Column="1">
+                <CollectionView ItemsSource="{Binding Skills}" VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="0,10">
+                            <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Description}"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            </VerticalStackLayout>-->
+            <Grid Grid.Row="7">
+            <Button Text="Enregister" />
+            <Button Text="Annuler" />
+           </Grid>
+        </StackLayout>
+            
+
+    </ScrollView>
+
+        </Grid>
+        </ScrollView>
+</ContentPage>

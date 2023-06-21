@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
+             xmlns:vmv="clr-namespace:Mvue.ViewModel"
+             x:Class="Mvue.Pages.ChampionsView"
+             xmlns:conv="clr-namespace:Mvue.Converters"
+             Title="ChampionsView"
+             x:Name="MaPage">
+    <ContentPage.Resources>
+        <conv:Base64ToImageConverter x:Key="Base64ToImageConverter"/>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ajouter" Command="{Binding AddChampionCommand}" Priority="0" Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="300" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <ListView ItemsSource="{Binding ChampionMgrVM.Champions}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <SwipeView>
+                                        <SwipeView.RightItems>
+                                            <!--Mon swipe modifi-->
+                                            <!--<SwipeItem Text="Modifier" BackgroundColor="Gray"  Command="{Binding   EditChampionCommand}"> </SwipeItem>-->
+                                            <SwipeItem Text="Modifier" BackgroundColor="Blue" Command="{Binding Source={x:Reference Name=MaPage}, Path=ChampionsViewModel.ChampionMgrVM.EditChampionCommand}" CommandParameter="{Binding .}" />
+                                               <SwipeItem Text="Supprimer" BackgroundColor="Red" Command="{Binding Source={x:Reference Name=MaPage}, Path=ChampionsViewModel.ChampionMgrVM.DeleteChampionCommand}" CommandParameter="{Binding .}" />                                     
+                                        </SwipeView.RightItems>
+                                        <Grid ColumnDefinitions="50,*,20" ColumnSpacing="10">
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vmv:ChampionsViewModel}}, Path=PushToDetailCommand}" CommandParameter="{Binding .}" />
+                                            </Grid.GestureRecognizers>
+                                            <Image Source="{Binding Icon, Converter={StaticResource Base64ToImageConverter}}" HeightRequest="50" WidthRequest="50" />
+                                            <StackLayout Orientation="Vertical" Grid.Column="1">
+                                                <Label Text="{Binding Name}" VerticalOptions="Center" FontAttributes="Bold" />
+                                            </StackLayout>
+                                        </Grid>
+                                    </SwipeView>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="2" VerticalOptions="End">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <HorizontalStackLayout Spacing="10">
+                    <Button Text="av" HeightRequest="12" Command="{Binding  PreviousPageCommand}" />
+                    <Label Text="{ Binding ChampionMgrVM.Index}"/>
+                    <Label Text="/"/>
+                    <Label Text="2"/>
+                    <Button Text="Next" VerticalOptions="End" HorizontalOptions="End" Command="{Binding NextPageCommand}"/>
+                </HorizontalStackLayout>
+            </Grid>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
