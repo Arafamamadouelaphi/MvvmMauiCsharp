@@ -14,18 +14,17 @@ namespace ViewModel
     {   
        // public ICommand DeleteChampionCommand { get; }
         public ObservableCollection<ChampionVM> Champions { get; }
-    
+
         public IDataManager DataManager
         {
             get => _dataManager;
             set
             {
-                //setproperty
-                if (_dataManager == value) return;
                 _dataManager = value;
-                OnPropertyChanged();
+               
             }
         }
+       
         private IDataManager _dataManager { get; set; }
 
         [RelayCommand(CanExecute = nameof(CanExecuteNext))]
@@ -72,8 +71,8 @@ namespace ViewModel
         }
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(PreviousPageCommand), nameof(NextPageCommand))]
-        private int index = 1;
 
+        private int index = 1;
         public int Count
         {
             get;
@@ -131,8 +130,6 @@ namespace ViewModel
         private async void updatePagination()
         {
             await LoadChampions(this.Index, Count);
-
-            // Total = this.DataManager.ChampionsMgr.GetNbItems().Result;
             if (Champions.Count == 0)
             {
                 this.Index = this.Index - 1;
@@ -143,31 +140,7 @@ namespace ViewModel
 
             OnPropertyChanged(nameof(PageTotale));
 
-        }
-
-        //private async void ChampionMgrVM_PropertyChanged(object? sender, PropertyChangedEventArgs e)
-        //{
-        //    if (e.PropertyName == nameof(Index))
-        //    {
-        //        await LoadChampions(index,Count);
-        //    }
-        //}
-
-
-
-        //public int Index
-        //{
-        //    get => index;
-        //    set
-        //    {
-        //        if (index == value) return;
-        //        index = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-
-
-
+        }     
     }
 }
 

@@ -55,7 +55,7 @@
             <Grid Grid.Row="4">
             <StackLayout Orientation="Horizontal" Margin="16">
                 <Label Text="Classe: " />
-                <ListView ItemsSource="{Binding EditableChampion.ListClasses}" SelectedItem="{Binding EditableChampion.Class}" >
+                <ListView ItemsSource="{Binding EditableChampion.ListClasses}" SelectedItem="{Binding EditableChampion.Classe}" >
                     <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

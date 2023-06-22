@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using ViewModel;
 using ViewModel.Vm;
 
 namespace Mvue.ViewModel
 {
-	public class EditChampionViewModel
-	{
-        public Command PickIconCommand { get; }
-        public Command PickImageCommand { get; }
+	public partial class EditChampionViewModel: ObservableObject
+    {
         public EditChampionViewModel(ChampionMgrVM manager, EditableChampionVM aditableChampion,ChampionVM championVM)
 		{
 			Manager = manager;
             EditableChampion = aditableChampion;
-			ChampionVM = championVM;
-			SaveChampionCommand = new Command(SaveChampion);
-            PickIconCommand = new Command(async () => await PickIcon());
-            PickImageCommand = new Command(async () => await PickImage());
+			ChampionVM = championVM;			
             Title = aditableChampion.IsNew ? "Create" : "Update";
         }
         public ReadOnlyDictionary<string, int> Characteristics
@@ -27,13 +24,13 @@ namespace Mvue.ViewModel
 		private ChampionMgrVM Manager;
 		public EditableChampionVM EditableChampion { get; }
 		private ChampionVM ChampionVM;
-		public Command SaveChampionCommand { get; }
-
-		private async void SaveChampion()
+        [RelayCommand]
+        private async void SaveChampion()
 		{
             Manager.SaveChampion(EditableChampion, ChampionVM);
             await Shell.Current.Navigation.PopAsync();
         }
+        [RelayCommand]
         private async Task PickIcon()
         {
             var result = await FilePicker.PickAsync(new PickOptions
@@ -50,6 +47,7 @@ namespace Mvue.ViewModel
                 EditableChampion.Icon = Convert.ToBase64String(bytes);
             }
         }
+        [RelayCommand]
         private async Task PickImage()
         {
             var result = await FilePicker.PickAsync(new PickOptions

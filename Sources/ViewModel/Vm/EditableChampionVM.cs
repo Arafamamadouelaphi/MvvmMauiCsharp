@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace ViewModel.Vm
 {
-    public partial class EditableChampionVM : ObservableObject, INotifyPropertyChanged
+    public partial class EditableChampionVM : ObservableObject
     {
 
         public ChampionVM Model { get; set; }
@@ -29,83 +29,87 @@ namespace ViewModel.Vm
 
         }
         public bool IsNew { get; private set; }
-
+        [ObservableProperty]
         private string _name;
-        public string Name
-        {
-            get => _name;
-            set
-            {
-                if (_name == value) return;
-                _name = value;
-                OnPropertyChanged();
-            }
-        }
+        //public string Name
+        //{
+        //    get => _name;
+        //    set
+        //    {
+        //        if (_name == value) return;
+        //        _name = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+        [ObservableProperty]
         private ChampionClass _classe;
-        public ChampionClass Class
-        {
-            get => _classe;
-            set
-            {
-                if (_classe == null) return;
-                _classe = value;
-                OnPropertyChanged();
-            }
-        }
+        //public ChampionClass Class
+        //{
+        //    get => _classe;
+        //    set
+        //    {
+        //        if (_classe == null) return;
+        //        _classe = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         public IEnumerable<ChampionClass> ListClasses { get; }
+        [ObservableProperty]
         private string icon;
-        public string Icon
-        {
-            get => icon;
-            set
-            {
-                if (icon == value) return;
-                icon = value;
-                OnPropertyChanged();
-            }
-        }
+        //public string Icon
+        //{
+        //    get => icon;
+        //    set
+        //    {
+        //        if (icon == value) return;
+        //        icon = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+        [ObservableProperty]
         private int index;
-        public int Index
-        {
-            get => index;
-            set
-            {
-                if (index == value) return;
-                index = value;
-                OnPropertyChanged();
-            }
-        }
-
+        //public int Index
+        //{
+        //    get => index;
+        //    set
+        //    {
+        //        if (index == value) return;
+        //        index = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+        [ObservableProperty]
         private string image;
-        public string Image
-        {
-            get => image;
-            set
-            {
-                if (image == value) return;
-                image = value;
-                OnPropertyChanged();
-            }
-        }
+       
+        //{
+        //    get => image;
+        //    set
+        //    {
+        //        if (image == value) return;
+        //        image = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+        [ObservableProperty]
         private string _bio;
-        public string Bio
-        {
-            get => _bio;
-            set
-            {
-                if (_bio == value) return;
-                _bio = value;
-                OnPropertyChanged();
-            }
-        }
+        //public string Bio
+        //{
+        //    get => _bio;
+        //    set
+        //    {
+        //        if (_bio == value) return;
+        //        _bio = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
         public ReadOnlyDictionary<string, int> Characteristics
         {
             get => Model.Characteristics;
         }
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        public event PropertyChangedEventHandler PropertyChanged;
+        //protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        //    => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //public event PropertyChangedEventHandler PropertyChanged;
         public void SaveChampion()
         {
             if (!IsNew)
@@ -113,7 +117,7 @@ namespace ViewModel.Vm
                 Model.Bio = Bio;
                 Model.Icon = Icon;
                 Model.Image.Base64 = Image;
-                Model.Class = Class;
+                Model.Class = Classe;
             }
             else
             {            

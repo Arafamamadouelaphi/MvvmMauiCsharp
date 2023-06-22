@@ -16,8 +16,8 @@ namespace Mvue.ViewModel
 		}
 		public ChampionVM ChampionVM { get; }
 		private ChampionMgrVM Manager;
-	public Command EditChampionCommand { get; }
-       // [RelayCommand]
+	//public Command EditChampionCommand { get; }
+        [RelayCommand]
         private async void EditChampion()
 		{
 			await Shell.Current.Navigation.PushAsync(new AjoutChampion(new EditChampionViewModel(Manager, new EditableChampionVM(ChampionVM),ChampionVM)));

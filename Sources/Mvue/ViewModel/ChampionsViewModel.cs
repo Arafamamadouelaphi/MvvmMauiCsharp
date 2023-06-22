@@ -12,7 +12,7 @@ namespace Mvue.ViewModel;
 
 public  partial class ChampionsViewModel : ObservableObject
 {
-    public Command EditChampionCommand { get; }
+  //  public Command EditChampionCommand { get; }
     public ChampionMgrVM ChampionMgrVM { get; }
 
     public ChampionsViewModel(ChampionMgrVM championMgr)
