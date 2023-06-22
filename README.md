@@ -14,7 +14,8 @@
  
 # DEpoMvvmMaison
 
-Welcome on the DEpoMvvmMaison project!  
+Welcome on the DEpoMvvmMaison project! 
+Le MVVM est une façon de construire une application en trois parties : le modèle, la vue et le ViewModel. Le modèle représente les données, la vue est ce que l'utilisateur voit à l'écran, et le ViewModel fait le lien entre les deux. Le ViewModel prend les données du modèle et les rend disponibles pour la vue. Il permet également à la vue de mettre à jour les données du modèle. Cela rend le code plus facile à réutiliser, à comprendre et à améliorer. Le Data Binding permet de connecter automatiquement les données du modèle à la vue, ce qui facilite la mise à jour de l'interface utilisateur lorsque les données changent. En utilisant le MVVM, les développeurs peuvent créer des applications plus flexibles et plus faciles à maintenir. 
 
   
 
