@@ -3,72 +3,32 @@ using ViewModel;
 using ViewModel.Vm;
 using Mvue.Pages;
 using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+
 
 namespace Mvue.ViewModel;
 
-public class ChampionsViewModel
+public  partial class ChampionsViewModel : ObservableObject
 {
-    public Command NextPageCommand { get; private set; }
-    public Command PreviousPageCommand { get; }
     public Command EditChampionCommand { get; }
     public ChampionMgrVM ChampionMgrVM { get; }
 
     public ChampionsViewModel(ChampionMgrVM championMgr)
     {
         ChampionMgrVM = championMgr;
-        PushToDetailCommand = new Command<ChampionVM>(PushToDetail);
-        NextPageCommand = new Command(NextPage,CanExecuteNext);
-        PreviousPageCommand = new Command(PreviousPage, CanExecutePrevious);
-        AddChampionCommand = new Command(Addchampion);
-
     }
-    private void NextPage()
-    {
-        ChampionMgrVM.Index++;
-        RefreshCanExecute();
-
-    }
-    private void PreviousPage()
-    {
-        ChampionMgrVM.Index--;
-        RefreshCanExecute();
-    }
-    private bool CanExecutePrevious()
-    {
-        return ChampionMgrVM.Index > 1;
-    }
-    private bool CanExecuteNext()
-    {
-        var val = (this.ChampionMgrVM.Index) < this.ChampionMgrVM.PageTotale;
-        return val;
-    }
-    void RefreshCanExecute()
-    {
-
-        PreviousPageCommand.ChangeCanExecute();
-        NextPageCommand.ChangeCanExecute();
-
-    }
-
-    public Command PushToDetailCommand { get; }
-    public Command AddChampionCommand { get; }
-
+    [RelayCommand]
     private void PushToDetail(ChampionVM champion)
     {
-    //    if (!ChampionMgrVM.Champions.Contains(champion)) return;
-    //    ChampionMgrVM.Champions.Remove(champion);
+    
         Shell.Current.Navigation.PushAsync(new DetailChampion(new ChampionDetailViewModel(ChampionMgrVM, champion)));
     }
 
-    private void Addchampion()
+    [RelayCommand]
+    private void AddChampion()
     {
         Shell.Current.Navigation.PushAsync(new AjoutChampion(new EditChampionViewModel(ChampionMgrVM, new EditableChampionVM(null), null)));
     }
-
-    //public Command AddChampion { get; set; }
-
-    //private void AddChampion(Tuple<string, int> tuple)
-    //{
-    //    ChampionVM.AddCharacteristics(tuple);
-    //}
 }

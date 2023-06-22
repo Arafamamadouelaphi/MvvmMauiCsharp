@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace ViewModel.Vm
 {
-    public class EditableChampionVM :  INotifyPropertyChanged
+    public partial class EditableChampionVM : ObservableObject, INotifyPropertyChanged
     {
 
         public ChampionVM Model { get; set; }
@@ -29,6 +29,7 @@ namespace ViewModel.Vm
 
         }
         public bool IsNew { get; private set; }
+
         private string _name;
         public string Name
         {
@@ -53,7 +54,6 @@ namespace ViewModel.Vm
         }
 
         public IEnumerable<ChampionClass> ListClasses { get; }
-
         private string icon;
         public string Icon
         {
@@ -76,6 +76,7 @@ namespace ViewModel.Vm
                 OnPropertyChanged();
             }
         }
+
         private string image;
         public string Image
         {
@@ -115,24 +116,12 @@ namespace ViewModel.Vm
                 Model.Class = Class;
             }
             else
-            {
-                //Model.Model = new Champion(Name,ChampionClass.Unknown,Icon,"",Bio);
+            {            
                 Model = new ChampionVM(new Champion(Name, ChampionClass.Unknown, Icon, "", Bio));
                 var data = "";
-                //foreach (KeyValuePair<string,int> c in Characteristique)
-                //{
-                //    Model.Model.AddCharacteristics(new Tuple<string, int>(c.Key, c.Value));
-                //}
-
             }
 
-
-
-
-
         }
-
-
 
     }
 }

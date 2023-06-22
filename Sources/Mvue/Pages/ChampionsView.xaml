@@ -60,11 +60,11 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <HorizontalStackLayout Spacing="10">
-                    <Button Text="av" HeightRequest="12" Command="{Binding  PreviousPageCommand}" />
+                    <Button Text="av" HeightRequest="12" Command="{Binding  ChampionMgrVM.PreviousPageCommand}" />
                     <Label Text="{ Binding ChampionMgrVM.Index}"/>
                     <Label Text="/"/>
-                    <Label Text="2"/>
-                    <Button Text="Next" VerticalOptions="End" HorizontalOptions="End" Command="{Binding NextPageCommand}"/>
+                    <Label Text="{Binding ChampionMgrVM.PageTotale}"/>
+                    <Button Text="Next" VerticalOptions="End" HorizontalOptions="End" Command="{Binding ChampionMgrVM.NextPageCommand}"/>
                 </HorizontalStackLayout>
             </Grid>
         </Grid>
