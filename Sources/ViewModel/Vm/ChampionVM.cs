@@ -1,9 +1,10 @@
-﻿using System.Collections.Immutable;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Model;
-
 namespace ViewModel;
 
 public class ChampionVM : INotifyPropertyChanged
@@ -25,7 +26,7 @@ public class ChampionVM : INotifyPropertyChanged
     {
         get => Model.Characteristics;
     }
-    
+
     public string Name
     {
         get => Model.Name;
@@ -98,6 +99,6 @@ public class ChampionVM : INotifyPropertyChanged
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
-    
+
 }
 

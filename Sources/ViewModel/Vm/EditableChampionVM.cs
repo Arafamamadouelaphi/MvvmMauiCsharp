@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.Immutable;
+using System;
 using Model;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -6,11 +9,12 @@ using System.Runtime.CompilerServices;
 using System.Reflection;
 using System.Windows.Input;
 
+
 namespace ViewModel.Vm
 {
-    public class EditableChampionVM : PropertyChangedSender , INotifyPropertyChanged
+    public class EditableChampionVM :  INotifyPropertyChanged
     {
-        
+
         public ChampionVM Model { get; set; }
         public EditableChampionVM(ChampionVM vM)
         {
@@ -22,7 +26,7 @@ namespace ViewModel.Vm
             image = IsNew ? string.Empty : Model.Image.Base64;
             _classe = IsNew ? ChampionClass.Unknown : Model.Class;
             ListClasses = Enum.GetValues<ChampionClass>().Where(c => c != ChampionClass.Unknown).ToArray();
-            
+
         }
         public bool IsNew { get; private set; }
         private string _name;
@@ -97,9 +101,9 @@ namespace ViewModel.Vm
         public ReadOnlyDictionary<string, int> Characteristics
         {
             get => Model.Characteristics;
-        }        
+        }
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-            =>PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         public event PropertyChangedEventHandler PropertyChanged;
         public void SaveChampion()
         {
@@ -119,7 +123,7 @@ namespace ViewModel.Vm
                 //{
                 //    Model.Model.AddCharacteristics(new Tuple<string, int>(c.Key, c.Value));
                 //}
-               
+
             }
 
 

@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 
 namespace ViewModel.Vm
 {
-        public class DataManagerVM :PropertyChangedSender
+        public class DataManagerVM 
                 {
                     private ObservableCollection<ChampionVM> ChampionsObs { get; set; } = new ObservableCollection<ChampionVM>();
                     public ReadOnlyObservableCollection<ChampionVM> ChampionVMs { get; private set; }

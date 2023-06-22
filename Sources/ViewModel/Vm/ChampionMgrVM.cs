@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.Immutable;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -9,11 +12,11 @@ using ViewModel.Vm;
 namespace ViewModel
 {
     public class ChampionMgrVM : INotifyPropertyChanged
-    {   
+    {
         public ICommand NextPageCommand { get; private set; }
         public ICommand DeleteChampionCommand { get; }
         public ObservableCollection<ChampionVM> Champions { get; }
-    
+
         public IDataManager DataManager
         {
             get => _dataManager;
@@ -26,8 +29,8 @@ namespace ViewModel
         }
         private IDataManager _dataManager
         { get; set; }
-    
-        
+
+
         public ChampionMgrVM(IDataManager dataManager)
         {
             DataManager = dataManager;
@@ -39,12 +42,12 @@ namespace ViewModel
             Total = this.DataManager.ChampionsMgr.GetNbItems().Result;
 
         }
-        
-        public int nombrepage(int GetNbItems,int count)
+
+        public int nombrepage(int GetNbItems, int count)
         {
             int result = GetNbItems / count;
-            
-            if (result < 0) return result+ 1;
+
+            if (result < 0) return result + 1;
             else
                 return result;
         }
@@ -52,7 +55,7 @@ namespace ViewModel
         {
             if (e.PropertyName == nameof(Index))
             {
-                await LoadChampions(index,Count);
+                await LoadChampions(index, Count);
             }
         }
 
@@ -70,7 +73,7 @@ namespace ViewModel
             }
         }
 
-public int Index
+        public int Index
         {
             get => index;
             set
@@ -80,8 +83,8 @@ public int Index
                 OnPropertyChanged();
             }
         }
-        
-        private int index=1;
+
+        private int index = 1;
 
         public int Count
         {
@@ -107,10 +110,10 @@ public int Index
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private async Task LoadChampions(int Index,int Count)
+        private async Task LoadChampions(int Index, int Count)
         {
             Champions.Clear();
-            var modelChampions = await DataManager.ChampionsMgr.GetItems(Index-1, Count);
+            var modelChampions = await DataManager.ChampionsMgr.GetItems(Index - 1, Count);
 
             foreach (var champion in modelChampions)
             {
@@ -137,7 +140,7 @@ public int Index
             {
                 editableChampionVM.SaveChampion();
                 var champ = await DataManager.ChampionsMgr.AddItem(editableChampionVM.Model.Model);
-                if(champ is null)
+                if (champ is null)
                 {
                     var tata = "sfs";
                 }
@@ -159,7 +162,7 @@ public int Index
         {
 
 
-            await LoadChampions(this.Index,Count);
+            await LoadChampions(this.Index, Count);
 
             // Total = this.DataManager.ChampionsMgr.GetNbItems().Result;
             if (Champions.Count == 0)

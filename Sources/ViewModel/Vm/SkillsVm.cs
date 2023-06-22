@@ -1,14 +1,4 @@
-﻿//using System;
-//namespace ViewModel.Vm
-//{
-//	public class SkillsVm
-//	{
-//		public SkillsVm()
-//		{
-//		}
-//	}
-//}
-using System;
+﻿using System;
 using ViewModel;
 using Model;
 using System.ComponentModel;
@@ -27,7 +17,6 @@ namespace VM
                 if (value != _model)
                 {
                     _model = value;
-                   // OnPropertyChanged();
                 }
             }
         }
@@ -48,7 +37,6 @@ namespace VM
                 if (value != Model.Description)
                 {
                     Model.Description = value;
-                 //   OnPropertyChanged();
                 }
             }
         }
