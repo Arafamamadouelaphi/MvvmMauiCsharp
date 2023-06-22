@@ -63,7 +63,7 @@
                     <Button Text="av" HeightRequest="12" Command="{Binding  PreviousPageCommand}" />
                     <Label Text="{ Binding ChampionMgrVM.Index}"/>
                     <Label Text="/"/>
-                    <Label Text="2"/>
+                    <Label Text="{Binding ChampionMgrVM.PageTotale}"/>
                     <Button Text="Next" VerticalOptions="End" HorizontalOptions="End" Command="{Binding NextPageCommand}"/>
                 </HorizontalStackLayout>
             </Grid>
