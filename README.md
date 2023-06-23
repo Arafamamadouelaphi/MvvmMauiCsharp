@@ -50,12 +50,17 @@ Attendu :
 ## Fais par:
 * [Mamadou Elaphi ARAFA](https://codefirst.iut.uca.fr/git/mamadou_elaphi.arafa)
 ### Explication du code MvvmMaison 
-Mon code comporte trois parties :
+Mon code comporte plusieurs parties :
+Modele ,Mvue (vues),VM Applicative et Vm
 ### Explication du code MvvmMaison 
 Le MVVM est une façon de construire une application en trois parties : 
 le modèle, la vue et le ViewModel. Le modèle représente les données, 
 la vue est ce que l'utilisateur voit à l'écran, et le ViewModel fait le lien entre les deux. 
 Le ViewModel prend les données du modèle et les rend disponibles pour la vue. Il permet également à la vue de mettre à jour les données du modèle. Cela rend le code plus facile à réutiliser, à comprendre et à améliorer. 
+### Emplacement
+
+    Master => Contient la MVVM de la maison
+    Branche toolkit => Contient MVVM Toolkit
 
 
 _Generated with a_ **Code#0** _template_  
