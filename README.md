@@ -47,6 +47,10 @@ Attendu :
  ### Detail de ce qui n'a pas éte fait 
  ✗  J'ai pas pu fair la modification de caracteristique et
   l'ajout de la gestion de skins 
+ ### Documentation
+    .NET FIXE
+    Boîte à outils de la communauté .NET MAUI
+    Boîte à outils .NET MAUI MVVM
 ## Fais par:
 * [Mamadou Elaphi ARAFA](https://codefirst.iut.uca.fr/git/mamadou_elaphi.arafa)
 ### Explication du code MvvmMaison 
