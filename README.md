@@ -16,41 +16,47 @@
 
 Welcome on the DEpoMvvmMaison project! 
 
-Le MVVM est une façon de construire une application en trois parties : 
-le modèle, la vue et le ViewModel. Le modèle représente les données, 
-la vue est ce que l'utilisateur voit à l'écran, et le ViewModel fait le lien entre les deux. 
-Le ViewModel prend les données du modèle et les rend disponibles pour la vue. Il permet également à la vue de mettre à jour les données du modèle. Cela rend le code plus facile à réutiliser, à comprendre et à améliorer. Le Data Binding permet de connecter automatiquement les données du modèle à la vue, ce qui facilite la mise à jour de l'interface utilisateur lorsque les données changent.
-Dans Mon project  View contient pages qui contiennent les vues de mon application , j'ai  le modele et deux  view Model , un applicative et l'autre 
-
-
-Réaliser une application MAUI avec un MVVM "maison". Je vous fournis le modèle, et peut-être quelques vues au fur et à mesure.
-
-J'attends de vous :
+Attendu :
 
     la réalisation d'un toolkit MVVM (bibliothèque de classes),
     le wrapping des classes du modèle par des VM (à chaque fois que c'est nécessaire),
     l'utilisation de commandes pour les différentes fonctionnalités,
     l'utilisation d'une VM applicative (navigation, index, sélection...).
 
-Faites ce que vous pouvez avec, dans l'ordre :
 
-    l'affichage de la collection de Champions. La possibilité de naviguer de n en n champions (5 champions par page, ou 10, etc.) et la pagination doivent être gérées ("fait ").
-    Permettez la sélection d'un champion pour le voir dans une page (on n'utilisera que ses propriétés simples (Name, Bio, Icon) puis LargeImage) ("fait ").
-    Ajoutez la gestion des caractéristiques (Characteristics) ("fait ").
-    Ajoutez la gestion de la classe du champion ("fait ").
-    Permettez la modification d'un champion existant (depuis la page du champion, et depuis un swipe sur l'item sélectionné dans la collection) ("fait ").
-    Permettez l'ajout d'un nouveau champion ("fait ").
-    Ajoutez la gestion des skills ("fait ").
-    Ajoutez la gestion des skins (pas fait).
-###
-J'ai pas pu fair la modification de caracteristique,
-j'ai pas eux le temps de bonder le button modifier a partir du swipeview mais la modifiaction se fait a partir 
-du boutton Modifier dans le detail
+### ce qui a éte fais :
 
-#######
-Toolkit Contient MVVM Toolkit 
-Master :Contient la MVVM de la maison  
-  
+  ✓  l'affichage de la collection de Champions. La possibilité de naviguer de n en n champions (5 champions par page, ou 10, etc.) et la pagination doivent être gérées.
+
+   ✓ Permettez la sélection d'un champion pour le voir dans une page (on n'utilisera que ses propriétés simples (Name, Bio, Icon) puis LargeImage).
+
+   ✓ Ajoutez la gestion des caractéristiques (Characteristics).   
+
+   ✓ Ajoutez la gestion de la classe du champion.
+
+
+   ✓ Permettez la modification d'un champion existant (depuis la page du champion, et depuis un swipe sur l'item sélectionné dans la collection).
+
+   ✓ Permettez l'ajout d'un nouveau champion.
+
+   ✓ Ajoutez la gestion des skills.
+
+   ✗ Ajoutez la gestion des skins. 
+   
+
+ ### Detail de ce qui n'a pas éte fait 
+ ✗  J'ai pas pu fair la modification de caracteristique et
+  l'ajout de la gestion de skins 
+## Fais par:
+* [Mamadou Elaphi ARAFA](https://codefirst.iut.uca.fr/git/mamadou_elaphi.arafa)
+### Explication du code MvvmMaison 
+Mon code comporte trois parties :
+### Explication du code MvvmMaison 
+Le MVVM est une façon de construire une application en trois parties : 
+le modèle, la vue et le ViewModel. Le modèle représente les données, 
+la vue est ce que l'utilisateur voit à l'écran, et le ViewModel fait le lien entre les deux. 
+Le ViewModel prend les données du modèle et les rend disponibles pour la vue. Il permet également à la vue de mettre à jour les données du modèle. Cela rend le code plus facile à réutiliser, à comprendre et à améliorer. 
+
 
 _Generated with a_ **Code#0** _template_  
 <img src="Documentation/doc_images/CodeFirst.png" height=40/>   
