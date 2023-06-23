@@ -48,7 +48,7 @@ Attendu :
  ✗  J'ai pas pu fair la modification de caracteristique et
   l'ajout de la gestion de skins 
  ### simplifications apportées par le toolkit
- Le Toolkit m'a simplifié et illustré les tâches 
+ Le Toolkit m'a simplifié et illustré les tâches cela m'a permit de supprimer beaucoup de code passe-partout, en utilisant à la place des annotations et des classes partielles, et tout en conservant assez de contrôle sur la façon dont les propriétés ont été définies, etc. 
 ## Fais par:
 * [Mamadou Elaphi ARAFA](https://codefirst.iut.uca.fr/git/mamadou_elaphi.arafa)
 ### Explication du code MvvmMaison 
