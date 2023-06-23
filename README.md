@@ -42,7 +42,8 @@ Faites ce que vous pouvez avec, dans l'ordre :
     Permettez l'ajout d'un nouveau champion ("fait ").
     Ajoutez la gestion des skills ("fait ").
     Ajoutez la gestion des skins (pas fait).
-
+###
+J'ai pas pu fair la modification de caracteristique
 
 #######
 Toolkit Contient MVVM Toolkit 
