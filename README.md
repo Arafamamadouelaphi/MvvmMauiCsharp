@@ -43,7 +43,9 @@ Faites ce que vous pouvez avec, dans l'ordre :
     Ajoutez la gestion des skills ("fait ").
     Ajoutez la gestion des skins (pas fait).
 ###
-J'ai pas pu fair la modification de caracteristique
+J'ai pas pu fair la modification de caracteristique,
+j'ai pas eux le temps de bonder le button modifier a partir du swipeview mais la modifiaction se fait a partir 
+du boutton Modifier dans le detail
 
 #######
 Toolkit Contient MVVM Toolkit 
