@@ -44,6 +44,9 @@ Faites ce que vous pouvez avec, dans l'ordre :
     Ajoutez la gestion des skins (pas fait).
 
 
+#######
+Toolkit Contient MVVM Toolkit 
+Master :Contient la MVVM de la maison  
   
 
 _Generated with a_ **Code#0** _template_  
