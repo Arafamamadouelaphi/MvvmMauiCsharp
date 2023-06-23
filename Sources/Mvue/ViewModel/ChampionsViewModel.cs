@@ -20,7 +20,7 @@ public class ChampionsViewModel
         NextPageCommand = new Command(NextPage,CanExecuteNext);
         PreviousPageCommand = new Command(PreviousPage, CanExecutePrevious);
         AddChampionCommand = new Command(Addchampion);
-
+        EditChampionCommand = new Command(execute: (champioon) => { EditChampion((ChampionVM)champioon); });
     }
     private void NextPage()
     {
@@ -63,6 +63,10 @@ public class ChampionsViewModel
     private void Addchampion()
     {
         Shell.Current.Navigation.PushAsync(new AjoutChampion(new EditChampionViewModel(ChampionMgrVM, new EditableChampionVM(null), null)));
+    }
+    private async void EditChampion(ChampionVM championvvm)
+    {
+        await Shell.Current.Navigation.PushAsync(new AjoutChampion(new EditChampionViewModel(ChampionMgrVM, new EditableChampionVM(championvvm), championvvm)));
     }
 
     //public Command AddChampion { get; set; }

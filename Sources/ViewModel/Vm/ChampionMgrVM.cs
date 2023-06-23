@@ -24,7 +24,6 @@ namespace ViewModel
                
             }
         }
-       
         private IDataManager _dataManager { get; set; }
 
         [RelayCommand(CanExecute = nameof(CanExecuteNext))]

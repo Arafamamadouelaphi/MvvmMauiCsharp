@@ -29,7 +29,7 @@
                                         <SwipeView.RightItems>
                                             <!--Mon swipe modifi-->
                                             <!--<SwipeItem Text="Modifier" BackgroundColor="Gray"  Command="{Binding   EditChampionCommand}"> </SwipeItem>-->
-                                            <SwipeItem Text="Modifier" BackgroundColor="Blue" Command="{Binding Source={x:Reference Name=MaPage}, Path=ChampionsViewModel.ChampionMgrVM.EditChampionCommand}" CommandParameter="{Binding .}" />
+                                            <SwipeItem Text="Modifier" BackgroundColor="Blue" Command="{Binding Source={x:Reference Name=MaPage}, Path=ChampionsViewModel.EditChampionCommand}" CommandParameter="{Binding .}" />
                                                <SwipeItem Text="Supprimer" BackgroundColor="Red" Command="{Binding Source={x:Reference Name=MaPage}, Path=ChampionsViewModel.ChampionMgrVM.DeleteChampionCommand}" CommandParameter="{Binding .}" />                                     
                                         </SwipeView.RightItems>
                                         <Grid ColumnDefinitions="50,*,20" ColumnSpacing="10">

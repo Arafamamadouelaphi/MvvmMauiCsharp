@@ -19,7 +19,7 @@ namespace Mvue.ViewModel
 
 		private async void EditChampion()
 		{
-			await Shell.Current.Navigation.PushAsync(new AjoutChampion(new EditChampionViewModel(Manager, new EditableChampionVM(ChampionVM),ChampionVM)));
+			await Shell.Current.Navigation.PushAsync(new AjoutChampion(new EditChampionViewModel(Manager, new EditableChampionVM(ChampionVM), ChampionVM)));
 		}
 	}
 }
