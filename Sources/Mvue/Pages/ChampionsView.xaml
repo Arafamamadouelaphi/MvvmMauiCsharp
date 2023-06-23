@@ -60,7 +60,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <HorizontalStackLayout Spacing="10">
-                    <Button Text="av" HeightRequest="12" Command="{Binding  ChampionMgrVM.PreviousPageCommand}" />
+                    <Button Text="Prev" Command="{Binding  ChampionMgrVM.PreviousPageCommand}" />
                     <Label Text="{ Binding ChampionMgrVM.Index}"/>
                     <Label Text="/"/>
                     <Label Text="{Binding ChampionMgrVM.PageTotale}"/>
